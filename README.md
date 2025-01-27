@@ -6,9 +6,9 @@ Our exploration mainly focuses on extremely small and time dependent training sa
 
 13 models were included, although only **KNN**, **Extra Trees**, and **TabNet** were chosen as the final adopted models. The code for other models is also provided for researchers to modify or reference. We hope that researchers can explore more potential in small sample machine learning inspired by this code.
 
-We provide some sample training data for model training demonstration. Specific information about these sample data can be found on the following website:
+We provide some sample training data for model training demonstration. Specific information about these sample data can be found on the following website.
 
-
+**pass**
 
 Based on these data obtained models, we processed Arctic sea ice data **from 2013 to 2023**.
 
