@@ -35,6 +35,9 @@ Yi Zhou, Chentong Zhang, & Xianwei Wang. (2025). Spring snow depth over pan-Arct
 ### References
 
 [1] T. Markus and D. J. Cavalieri, “Snow depth distribution over sea ice in the Southern Ocean from satellite passive microwave data,” Antarctic sea ice: physical processes, interactions and variability, vol. 74, pp. 19-39, Jan. 1998.
+
 [2] P. Rostosky, G. Spreen, S. L. Farrell, T. Frost, G. Heygster, and C. Melsheimer, “Snow Depth Retrieval on Arctic Sea Ice From Passive Microwave RadiometersImprovements and Extensions to Multiyear Ice Using Lower Frequencies,” Journal of Geophysical Research: Oceans, vol. 123, no. 10, pp. 7120-7138, Sep. 2018.
+
 [3] A. Jutila, S. Hendricks, R. Ricker, L. von Albedyll, and C. Haas, “Airborne sea ice parameters during the PAMARCMIP2017 campaign in the Arctic Ocean, Version 2,” PANGAEA, 2024, doi: 10.1594/PANGAEA.966009.
+
 [4] A. Jutila, S. Hendricks, R. Ricker, L. von Albedyll, and C. Haas., “Airborne sea ice parameters during the IceBird Winter 2019 campaign in the Arctic Ocean, Version 2,”PANGAEA, 2024, doi: 10.1594/PANGAEA.966057.
