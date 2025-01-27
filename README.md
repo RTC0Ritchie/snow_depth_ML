@@ -1,6 +1,6 @@
 ## Arctic Snow Depth on Sea Ice
 ### Prediction Model by Machine Learning Methods
-code.ipynb file uses Python based machine learning software to invert and predict Arctic snow depth. It uses information from AMSR2 microwave remote sensing data.
+code_ML.ipynb file uses Python based machine learning software to invert and predict Arctic snow depth. It uses information from AMSR2 microwave remote sensing data.
 
 Our exploration mainly focuses on extremely small and time dependent training samples.
 
