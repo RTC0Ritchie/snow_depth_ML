@@ -1,6 +1,6 @@
 ## Arctic Spring Snow Depth
 ### Background
-The theoretical framework for snow depth retrieval follows Markus and Cavalieri [1] and Rostosky, et al. [2], and the input parameters include: 〖TB〗_ice (7V),  〖TB〗_ice (19V), 〖TB〗_ice (37V), 〖GR〗_ice (19V/7V),〖GR〗_ice (37V/19V), and 〖PR〗_ice (37)
+The theoretical framework for snow depth retrieval follows Markus and Cavalieri [1] and Rostosky, et al. [2], and the input parameters include: $TB_{ice} (7V)$,  〖TB〗_ice (19V), 〖TB〗_ice (37V), 〖GR〗_ice (19V/7V),〖GR〗_ice (37V/19V), and 〖PR〗_ice (37)
 
 
 The training reference was obtained from the latest version of the AWI IceBird airborne snow depth data, available from 10.1594/PANGAEA.966009 (Apr 2017) [3] and  10.1594/PANGAEA.966057(Apr 2019) [4]
