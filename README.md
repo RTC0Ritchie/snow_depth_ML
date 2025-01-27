@@ -1,1 +1,2 @@
-Predict Arctic Snow Depth by Machine Learning Methods
+## Arctic Snow Depth on Sea Ice
+### Prediction Model by Machine Learning Methods
