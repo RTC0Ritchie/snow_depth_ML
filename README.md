@@ -29,7 +29,7 @@ Based on **KNN**, **Extra Trees**, and **TabNet** models, snow depth prediction 
 
 
 **Spring snow depth over pan-Arctic sea ice derived from AMSR2 using machine learning methods (2013-2023)**: 
-Yi Zhou, Chentong, Zhang, & Xianwei Wang. (2025). Spring snow depth over pan-Arctic sea ice derived from AMSR2 using machine learning methods (2013-2023) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.14739244
+Yi Zhou, Chentong Zhang, & Xianwei Wang. (2025). Spring snow depth over pan-Arctic sea ice derived from AMSR2 using machine learning methods (2013-2023) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.14739244
 
 
 ### References
