@@ -14,6 +14,6 @@ Based on these data obtained models, we processed Arctic sea ice data **from 201
 
 
 
-Researchers can modify the data preprocessing code to adapt to their own research data, mainly using the label processing function 'raw2process'.
+Researchers can modify the data preprocessing code to adapt to their own research data, mainly changing the label processing function 'raw2process'.
 
 The Python libraries required to ensure the proper functioning of the code are displayed in the **requirements.txt** file.
