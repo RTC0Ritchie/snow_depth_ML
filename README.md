@@ -16,7 +16,7 @@ Our exploration mainly focuses on relatively small and time independent (but in 
 13 models are included, although only **KNN**, **Extra Trees**, and **TabNet** are chosen as the final adopted models. The code for other models is also provided for researchers to modify or refer to. We hope that researchers can explore more potential in small sample machine learning inspired by this code.
 
 
-This code is only for demonstration purposes. Researchers can modify the data preprocessing code to adapt to their own research data, mainly changing the label processing function '*raw2process*'.
+This code is only for demonstration purposes. Researchers can modify the data preprocessing code to adapt to their own research data, mainly changing the label processing function '*splitlabel*' and ' *raw2process*'.
 
 
 The Python libraries required to ensure the proper functioning of the code are displayed in the *requirements.txt* file.
