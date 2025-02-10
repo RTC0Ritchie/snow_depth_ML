@@ -7,7 +7,7 @@ The training reference was obtained from the latest version of the AWI IceBird a
 
 
 ### Introduction to Code
-The *code_ML.ipynb* file uses Python-based machine learning methods to invert and predict Arctic spring snow depth.
+The *process_data.ipynb* file uses Python-based machine learning methods to invert and predict Arctic spring snow depth, and the *kfold_importance.ipynb* file is used to do k-fold cross validation and importance test (with permutation_importance function).
 
 
 Our exploration mainly focuses on relatively small and time independent (but in spring) training samples.
