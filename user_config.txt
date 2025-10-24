@@ -1,0 +1,13 @@
+input_data = 'training/ML_IceBird_Train.xlsx'
+model_save = 'model/'
+Train_feature_input_idx = [7,11,15,14]
+Feature_output_idx = 2
+model_selection = [3,7,10]
+model_name = ['knn', 'et', 'tabnet']
+if_need_clean_data = False
+Clean_data_devide = [5.6, 12.3 , 18.96, 25.61, 38.95]
+Num_of_data_per_bin = 36
+Randomseed = 42
+input_predict_data = 'predicting/Feature/'
+output_predict_data = 'predicting/'
+Predict_feature_input_idx = [4, 8, 12, 11]
