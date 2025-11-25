@@ -1,4 +1,4 @@
-# IceBird ML Toolkit
+# ML Toolkit: Result from AMSR2 and IceBird
 
 An automated machine learning toolkit based on conda environment for training models and batch predicting IceBird data. No coding required, just run with configuration files.
 
