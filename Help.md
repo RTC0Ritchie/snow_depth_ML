@@ -13,3 +13,5 @@ conda activate icebird
 
 # 安装依赖（假设requirement.txt已存在）
 pip install -r requirement.txt
+
+### 2.准备配置文件
