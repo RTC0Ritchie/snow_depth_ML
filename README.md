@@ -21,16 +21,7 @@ This code is only for demonstration purposes. Researchers can modify the data pr
 
 The Python libraries required to ensure the proper functioning of the code are displayed in the *requirements.txt* file.
 
-
-### Results
-
-
-Based on **KNN**, **Extra Trees**, and **TabNet** models, snow depth prediction results are shown below:
-
-
-**Spring snow depth over pan-Arctic sea ice derived from AMSR2 using machine learning methods (2013-2023)**: 
-Chentong Zhang, Yi Zhou,  & Xianwei Wang. (2025). Spring snow depth over pan-Arctic sea ice derived from AMSR2 using machine learning methods (2013-2023) [Data set]. Zenodo. https://zenodo.org/uploads/14845778
-
+See `Help.md` to find the usage of this code.
 
 ### References
 
