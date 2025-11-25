@@ -1,125 +1,127 @@
 # IceBird ML Toolkit
 
-一个基于conda环境的自动化机器学习工具箱，用于训练模型并批量预测IceBird数据。无需编写代码，通过配置文件即可运行。
+An automated machine learning toolkit based on conda environment for training models and batch predicting IceBird data. No coding required, just run with configuration files.
 
-## 快速开始
+## Quick Start
 
-### 1. 环境准备
-创建并激活conda环境
+### 1. Environment Preparation
+
+Create and activate conda environment:
 ```bash
 conda create -n icebird python=3.8
 conda activate icebird
 
 ```
-安装依赖（假设requirement.txt已存在）
+Install dependencies:
 
 ```bash
 pip install -r requirement.txt
 ```
 
-### 2.准备配置文件
-将整个代码库下载到本地，或者通过自定义的方式，新建文件夹，下载`core_process.py`和`user_config.txt`到本地文件夹中。根据需求修改`user_config.txt`文件。
+### 2.Prepare Configuration File
+Download the entire codebase locally, or create a new folder in a custom way, download `core_process.py` and `user_config.txt` to your local folder. Modify the `user_config.txt` file according to your needs.
 
 ```ini
-# 训练数据选项
+# Training Data Options
 input_data = 'training/ML_IceBird_Train.xlsx'
 model_save = 'model/'
 Train_feature_input_idx = [7,11,15,14]
 Feature_output_idx = 2
 
-# 模型选择选项
+# Model Selection Options
 model_selection = [3,7,10] 
 model_name = ['knn', 'catboost', 'tabnet']
 
-# 数据清洗
+# Data Cleaning
 if_need_clean_data = False 
 Clean_data_devide = [5.6, 12.3, 18.96, 25.61, 38.95] 
 Num_of_data_per_bin = 36 
 Randomseed = 42 
 
-# 预测数据选项
+# Prediction Data Options
 input_predict_data = 'predicting/Feature/'
 output_predict_data = 'predicting/'
 Predict_feature_input_idx = [4,8,12,11]
 is_need_lonlat = True
 ```
 
-### 3.准备数据
-训练数据请整合为一个xlsx文件或csv文件，如本研究案例`training/ML_IceBird_Train.xlsx`所示。其中要求至少包括1列训练标签和4列训练特征（7V,19V,37V,37H）。
+### 3.Prepare Data
+Please consolidate training data into a single `xlsx` or `csv` file, as shown in the case study `training/ML_IceBird_Train.xlsx`. It must include at least 1 training label column and 4 training feature columns (7V, 19V, 37V, 37H).
 
-预测数据请放在`input_predict_data`所给出的文件夹中，要求至少含有2列地理坐标系（必须放置在前两列）和4列预测特征（7V,19V,37V,37H），支持多文件，但所有文件特征列的存放顺序必须一致。输出数据和输入数据的文件名称一一对应。预测文件只支持csv格式。
+Place prediction data in the folder specified by `input_predict_data`. It must contain at least 2 geographic coordinate columns (must be placed in the first two columns) and 4 prediction feature columns (7V, 19V, 37V, 37H). Multiple files are supported, but the order of feature columns must be consistent across all files. Output and input file names correspond one-to-one. Prediction files only support `csv` format.
 
-### 4.训练模型
-在拥有依赖的conda环境下，训练并保存模型：
+### 4.Train Model
+In the conda environment with dependencies installed, train and save the model:
 
 ```bash
 python core_process.py --train --config user_config.txt
 ```
 
-运行后：
-- 模型文件保存在 `model/` 目录，采用`model_name`作为各自的命名
-- 自动生成 `model/minmax.csv`（数据归一化参数）作为中间数据，无需操作
+After running:
+- Model files are saved in the `model/` directory, using `model_name` as their respective names
+- Automatically generates `model/minmax.csv` (data normalization parameters) as intermediate data, no action required
 
-### 5.批量预测
-使用已训练模型进行预测
+### 5.Batch Prediction
+Use trained models for prediction
 ```bash
 python core_process.py --predict --config user_config.txt
 ```
 
-或同时训练和预测：
+Or train and predict simultaneously:
 ```bash
 python core_process.py --train --predict --config user_config.txt
 ```
 
-预测结果将按`model_name`模型名称分别保存在 `output_predict_data/` 各子目录中。
+Prediction results will be saved in respective subdirectories under `output_predict_data/` according to the `model_name`.
 
-### 配置参数说明
-| 参数 | 说明 | 示例 | 默认 |
+### Configuration Parameter Description
+| Parameter | Description | Example | Default |
 |------|------|------|------|
-| `input_data` | 训练数据文件路径（支持.xlsx或.csv） | `'training/data.xlsx'` | 如果`--train`模式开启，那么该数据强制输入，并要求该文件夹存在 |
-| `model_save` | 模型保存路径 | `'model/'` | 该数据强制输入；如果`--predict`模式开启，那么要求该文件夹存在 |
-| `Train_feature_input_idx` | 特征在训练数据中的列索引（从1开始），先后顺序分别为7V,19V,37V,37H | `[7,11,15,14]` | `[7,11,15,14]` | 
-| `Feature_output_idx` | 真实数据标签在训练数据中的列索引（从1开始） | `2` | `2` |
+| `input_data` | Training data file path (supports .xlsx or .csv) | `'training/data.xlsx'` | If `--train` mode is enabled, this data is mandatory and the file must exist |
+| `model_save` | Model save path | `'model/'` | This data is mandatory; if `--predict` mode is enabled, the folder must exist |
+| `Train_feature_input_idx` | Column index of features in training data (1-indexed), order: 7V, 19V, 37V, 37H | `[7,11,15,14]` | `[7,11,15,14]` | 
+| `Feature_output_idx` | Column index of ground truth labels in training data (1-indexed) | `2` | `2` |
 |------|------|------|------|
-| `model_selection` | 模型编号列表，参考下文表格 | `[3,7,10]` | `[0]` |
-| `model_name` | 自定义模型名称；该名称将作为后续输出文件所在子文件夹的名称，便于您识别 | `['knn','catboost','tabnet']` | `['model_1', ..., 'model_i']` |
+| `model_selection` | Model index list, refer to table below | `[3,7,10]` | `[0]` |
+| `model_name` | Custom model name; this name will be used as subdirectory name for output files for easy identification | `['knn','catboost','tabnet']` | `['model_1', ..., 'model_i']` |
 |------|------|------|------|
-| `if_need_clean_data` | 是否按标签值分箱采样；如果为False，那么后三个数据将不起作用 | `False` | `False` |
-| `Clean_data_devide` | 选择分割直方图的边界 | `[5.6, 12.3, 18.96, 25.61, 38.95]` | `[5.6, 12.3, 18.96, 25.61, 38.95]` |
-| `Num_of_data_per_bin` | 每个区间内经过均衡后剩余的最大数据数目 | `36` | `36` |
-| `Randomseed` | 固定随机种子 | `42` | 如果删去该数据段或输入None，那么随机挑选随机种子 |
+| `if_need_clean_data` | Whether to sample by binning label values; if False, the next three parameters have no effect | `False` | `False` |
+| `Clean_data_devide` | Histogram split boundaries | `[5.6, 12.3, 18.96, 25.61, 38.95]` | `[5.6, 12.3, 18.96, 25.61, 38.95]` |
+| `Num_of_data_per_bin` | Maximum number of data points remaining per bin after balancing | `36` | `36` |
+| `Randomseed` | Fixed random seed | `42` | If this parameter is removed or set to None, a random seed will be selected randomly |
 |------|------|------|------|
-| `input_predict_data` | 预测数据特征文件保存路径 | `'predicting/Feature/'` | 如果`--predict`模式开启，那么该数据强制输入，并要求该文件夹存在 |
-| `output_predict_data` | 预测雪深结果输出路径 | `'predicting/'` | 如果`--predict`模式开启，那么该数据强制输入，并要求该文件夹存在 |
-| `Predict_feature_input_idx` | 特征在预测数据中的列索引（从1开始），先后顺序分别为7V,19V,37V,37H | `[4,8,12,11]` | `[4,8,12,11]` |
-| `is_need_lonlat` | 预测结果是否保留经纬度 | `True` | `True` |
+| `input_predict_data` | Prediction data feature files folder path | `'predicting/Feature/'` | If `--predict` mode is enabled, this data is mandatory and the folder must exist |
+| `output_predict_data` | Predicted snow depth output path | `'predicting/'` | If `--predict` mode is enabled, this data is mandatory and the folder must exist |
+| `Predict_feature_input_idx` | Column index of features in prediction data (1-indexed), order: 7V, 19V, 37V, 37H | `[4,8,12,11]` | `[4,8,12,11]` |
+| `is_need_lonlat` | Whether to retain longitude/latitude in prediction results | `True` | `True` |
 
-### 支持模型列表
-| 编号 | 模型名称 |
+### Supported Models List
+| Index | Model Name |
 |------|----------|
-| 0 | 线性回归 |
-| 1 | 支持向量机 |
+| 0 | Linear Regression |
+| 1 | Support Vector Machine |
 | 2 | XGBoost |
-| 3 | K最近邻 |
-| 4 | 梯度提升 |
-| 5 | 随机森林 |
+| 3 | K-Nearest Neighbors |
+| 4 | Gradient Boosting |
+| 5 | Random Forest |
 | 6 | LightGBM |
 | 7 | CatBoost |
 | 8 | ExtraTrees |
 | 9 | AdaBoost |
 | 10 | TabNet |
 | 11 | LCE |
-| 12 | 神经网络 |
-| 13 | 残差网络 |
+| 12 | Neural Network |
+| 13 | ResNet |
 
-### 典型工作流程
-1. **准备数据**：确保训练数据和预测数据格式一致（列对应）
-2. **配置模型**：在user_config.txt中选择1-3个模型
-3. **训练**：运行--train命令或同时进行预测与训练
-4. **预测**：运行--predict命令
+### Typical Workflow
 
-### 注意事项
-- 特征列索引从1开始计数
-- 预测数据文件夹内的文件需为.csv格式
-- 模型名称将作为模型文件和预测结果子文件夹名称
-- 临时文件minmax.csv不可删除，否则无法预测
+1. **Prepare data**: Ensure training and prediction data have consistent format (column correspondence)
+2. **Configure models**: Select models in `user_config.txt` and do other setup
+3. **Train**: Run `--train` command or train and predict simultaneously
+4. **Predict**: Run `--predict` command
+
+### Notes
+- Feature column indices are 1-indexed
+- Files in prediction data folder must be in `.csv` format
+- Model names will be used for model files and prediction result subfolder names
+- Temporary file `minmax.csv` must not be deleted, otherwise prediction will fail
