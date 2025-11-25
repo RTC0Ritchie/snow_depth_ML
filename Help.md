@@ -48,7 +48,9 @@ is_need_lonlat = True
 ### 3.Prepare Data
 Please consolidate training data into a single `xlsx` or `csv` file, as shown in the case study `training/ML_IceBird_Train.xlsx`. It must include at least 1 training label column and 4 training feature columns (7V, 19V, 37V, 37H).
 
-Place prediction data in the folder specified by `input_predict_data`. It must contain at least 2 geographic coordinate columns (must be placed in the first two columns) and 4 prediction feature columns (7V, 19V, 37V, 37H). Multiple files are supported, but the order of feature columns must be consistent across all files. Output and input file names correspond one-to-one. Prediction files only support `csv` format.
+Place prediction data in the folder specified by `input_predict_data`. It must contain at least 2 geographic coordinate columns (must be placed in the first two columns) and 4 prediction feature columns (7V, 19V, 37V, 37H). Multiple files are supported, but the order of feature columns must be consistent across all files. Output and input file names correspond one-to-one. Prediction files only support `csv` format. As an example, refer to the files in `predicting/Feature`. To use the complete Spring 2024 dataset, download the `Feature/ fileset` hosted on [Hugging Face]:
+
+(https://huggingface.co/datasets/RTC0Ritchie/snow_depth_ML)
 
 ### 4.Train Model
 In the conda environment with dependencies installed, train and save the model:
